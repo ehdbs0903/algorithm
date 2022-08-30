@@ -16,7 +16,7 @@ for _ in range(t):
     n = int(input())
     left = n // 2
     right = left
-    
+		
     while True:
         if left in prime and right in prime:
             print(left, right)
