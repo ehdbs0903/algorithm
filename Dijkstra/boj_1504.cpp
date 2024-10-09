@@ -33,6 +33,8 @@ int dijkstra(int v, int target, const vector<vector<pair<int, int>>>& graph) {
 			pq.push(make_pair(w + nw, nv));
 		}
 	}
+
+	return -2147483648;
 }
 
 int main() {
@@ -58,7 +60,10 @@ int main() {
 	int dist1 = dijkstra(1, v1, graph) + dijkstra(v1, v2, graph) + dijkstra(v2, n, graph);
 	int dist2 = dijkstra(1, v2, graph) + dijkstra(v2, v1, graph) + dijkstra(v1, n, graph);
 
-	cout << min(dist1, dist2);
+	if (dist1 < 0 && dist2 < 0)
+		cout << -1;
+	else
+		cout << min(dist1, dist2);
 
 
 	return 0;
